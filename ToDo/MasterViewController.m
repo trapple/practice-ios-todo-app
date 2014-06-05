@@ -102,7 +102,11 @@
 {
     if ([segue.identifier isEqualToString:@"save"]) {
         NewViewController *controller = (NewViewController *)segue.sourceViewController;
-        [self insertNewObject:controller.textField.text];
+        NSString *text = controller.textField.text;
+        if (text.length > 0) {
+            [self insertNewObject:text];
+        }
+        
     }
 }
 
